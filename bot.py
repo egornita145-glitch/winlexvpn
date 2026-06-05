@@ -11,6 +11,9 @@ SUPABASE_URL = "https://iqbxfnrzpsptzregcexp.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxYnhmbnJ6cHNwdHpyZWdjZXhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTk3MzcsImV4cCI6MjA5NTkzNTczN30.HDmiw21c7QDVjbKwJs1fuDsvWR7e21ycpv8yPpLbm_I"
 CHANNEL_ID = "@winlexvpn"
 PREMIUM_HOURS = 24
+PROXY_HOST = "quackton.life"
+PROXY_PORT = "443"
+PROXY_SECRET = "ee65fc7553a1f5ca8b50b71c015b38722479616e6465782e7275"
 
 # === БАЗА ДАННЫХ ===
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
@@ -54,6 +57,10 @@ async def get_premium(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"🔑 Ключ: `{premium_key}`\n"
         f"⏰ Длительность: *{PREMIUM_HOURS} часа*\n"
         f"📅 Истекает: *{expires_at.strftime('%H:%M %d.%m.%Y')}*\n\n"
+        f"🌐 *Данные для подключения:*\n"
+        f"📡 Сервер: `{PROXY_HOST}`\n"
+        f"🔌 Порт: `{PROXY_PORT}`\n"
+        f"🔐 Секрет: `{PROXY_SECRET}`\n\n"
         f"📢 Подпишись на {CHANNEL_ID}",
         parse_mode="Markdown"
     )
